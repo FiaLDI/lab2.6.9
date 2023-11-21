@@ -38,7 +38,7 @@ if __name__ == '__main__':
             
             find_name = parts[1]
             
-            a = False
+            find_count = 0
             for i, item in enumerate(list_of_product):
                 for j in list_of_product[i]:
                     if list_of_product[i].get(j) == find_name:
@@ -59,7 +59,7 @@ if __name__ == '__main__':
                         print(
                             "-" * 10
                         )
-                        a = True
-            if not a:
+                        find_count += 1
+            if not find_count:
                 print(f"Товара с именем {find_name} не существует")
                 
