@@ -28,8 +28,7 @@ if __name__ == '__main__':
 
             if len(list_of_product) > 1:
                 list_of_product.sort(
-                    key=lambda item: 
-                    item.get('name_of_product', '')
+                    key=lambda item:item.get('name_of_product', '')
                 )
         
         elif command.startswith('info '):
@@ -56,9 +55,7 @@ if __name__ == '__main__':
                         print(
                             f"Стоимость: {list_of_product[i].get('value')}"
                         )
-                        print(
-                            "-" * 10
-                        )
+                        print( "-" * 10)
                         find_count += 1
             if not find_count:
                 print(f"Товара с именем {find_name} не существует")
