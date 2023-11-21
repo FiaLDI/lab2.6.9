@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 
 from distutils import command
-from queue import Empty
-import sys
 
 
 if __name__ == '__main__':
-    towars = []
+    list_of_product = []
 
     while True:
         command = input(">>> ").lower()
@@ -16,34 +14,52 @@ if __name__ == '__main__':
             break
 
         elif command == 'add':
-            name = input("Имя товара: ")
-            marketName = input("Имя магазина: ")
-            st = int(input("Стоимость товара: "))
+            name_of_product = input("Имя товара: ")
+            name_of_market = input("Имя магазина: ")
+            value = int(input("Стоимость товара: "))
 
-            towar = {
-                'name':name,
-                'marketName':marketName,
-                'st':st
+            dict_of_product = {
+                'name_of_product':name_of_product,
+                'name_of_market':name_of_market,
+                'value':value
             }
 
-            towars.append(towar)
+            list_of_product.append(dict_of_product)
 
-            if len(towars) > 1:
-                towars.sort(key=lambda item: item.get('name', ''))
+            if len(list_of_product) > 1:
+                list_of_product.sort(
+                    key=lambda item: 
+                    item.get('name_of_product', '')
+                )
         
-        elif command == 'info':
-            nameTowar = input('Введите название: ')
+        elif command.startswith('info '):
+            
+            parts = command.split(' ', maxsplit=1)
+            
+            find_name = parts[1]
             
             a = False
-            for i, item in enumerate(towars):
-                for j in towars[i]:
-                    if towars[i].get(j) == nameTowar:
+            for i, item in enumerate(list_of_product):
+                for j in list_of_product[i]:
+                    if list_of_product[i].get(j) == find_name:
                         print("-"* 10)
-                        print(f"Имя товара: {towars[i].get('name')}")
-                        print(f"Имя магазина: {towars[i].get('marketName')}")
-                        print(f"Стоимость: {towars[i].get('st')}")
-                        print("-" * 10)
+                        print(
+                            f"Имя товара: {list_of_product[i].get(
+                                'name_of_product'
+                            )}"
+                        )
+                        print(
+                            f"Имя магазина: {list_of_product[i].get(
+                                'name_of_market'
+                            )}"
+                        )
+                        print(
+                            f"Стоимость: {list_of_product[i].get('value')}"
+                        )
+                        print(
+                            "-" * 10
+                        )
                         a = True
-            if a == False:
-                print(f"Товара с именем {nameTowar} не существует")
+            if not a:
+                print(f"Товара с именем {find_name} не существует")
                 
