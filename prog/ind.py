@@ -5,7 +5,7 @@ from distutils import command
 
 
 if __name__ == '__main__':
-    list_of_product = []
+    products = []
 
     while True:
         command = input(">>> ").lower()
@@ -24,10 +24,10 @@ if __name__ == '__main__':
                 'value':value
             }
 
-            list_of_product.append(dict_of_product)
+            products.append(dict_of_product)
 
-            if len(list_of_product) > 1:
-                list_of_product.sort(
+            if len(products) > 1:
+                products.sort(
                     key=lambda item:item.get('name_of_product', '')
                 )
         
@@ -38,22 +38,18 @@ if __name__ == '__main__':
             find_name = parts[1]
             
             find_count = 0
-            for i, item in enumerate(list_of_product):
-                for j in list_of_product[i]:
-                    if list_of_product[i].get(j) == find_name:
+            for i, item in enumerate(products):
+                for j in products[i]:
+                    if products[i].get(j) == find_name:
                         print("-"* 10)
                         print(
-                            f"Имя товара: {list_of_product[i].get(
-                                'name_of_product'
-                            )}"
+                            f"Товара: {products[i].get('name_of_product')}"
                         )
                         print(
-                            f"Имя магазина: {list_of_product[i].get(
-                                'name_of_market'
-                            )}"
+                            f"Магазин: {products[i].get('name_of_market')}"
                         )
                         print(
-                            f"Стоимость: {list_of_product[i].get('value')}"
+                            f"Стоимость: {products[i].get('value')}"
                         )
                         print( "-" * 10)
                         find_count += 1

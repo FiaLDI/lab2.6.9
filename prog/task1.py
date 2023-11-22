@@ -32,7 +32,7 @@ if __name__ == '__main__':
         "Введите класс, который необходимо удалить: "
     )
 
-    del del_of_class_value
+    del school[del_of_class_value]
     print(school)
     print(sum(school.values()))
 
