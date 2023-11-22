@@ -36,21 +36,14 @@ if __name__ == '__main__':
             find_name = parts[1]
             
             find_count = 0
-            for i, item in enumerate(products):
-                for j in products[i]:
-                    if products[i].get(j) == find_name:
-                        print("-"* 10)
-                        print(
-                            f"Товара: {products[i].get('name_of_product')}"
-                        )
-                        print(
-                            f"Магазин: {products[i].get('name_of_market')}"
-                        )
-                        print(
-                            f"Стоимость: {products[i].get('value')}"
-                        )
-                        print( "-" * 10)
-                        find_count += 1
-            if not find_count:
+            
+            for product in products:
+                if product.get('name_of_product') == find_name:
+                    print(f"Имя:{product.get('name_of_product')}")
+                    print(f"Маркет:{product.get('name_of_market')}")
+                    print(f"Стоимость:{product.get('value')}")
+                    find_count += 1
+
+            if find_count < 0:
                 print(f"Товара с именем {find_name} не существует")
                 
