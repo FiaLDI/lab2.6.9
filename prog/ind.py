@@ -69,29 +69,13 @@ if __name__ == '__main__':
             for product in products:
                 if product.get('name_of_product') == find_name:
                     find_count += 1
-                    line = '+-{}-+-{}-+-{}-+-{}-+'.format(
-                        '-' * 4,
-                        '-' * 30,
-                        '-' * 20,
-                        '-' * 8
-                    )
-                    print(line)
-                    print( '| {:^4} | {:^30} | {:^20} | {:^8} |'.format(
-                            "№",
-                            "Название товара",
-                            "Название магазина",
-                            "Стоимость"
-                        )
-                    )
-                    print(line)
-                    print( '| {:>4} | {:<30} | {:<20} | {:>8} |'.format(
-                            idx,
+                    print (
+                        ' | {:<30} | {:<20} | {:>8} |'.format(
                             product.get('name_of_product', ''),
                             product.get('name_of_market', ''),
-                            product.get('value', 0)
+                            product.get('value', '')
                         )
                     )
-                    print(line)
             
             if find_count == 0:
                 print("Товар с заданным именем не найден")
