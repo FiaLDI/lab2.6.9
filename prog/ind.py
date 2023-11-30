@@ -69,8 +69,7 @@ if __name__ == '__main__':
             for product in products:
                 if product.get('name_of_product') == find_name:
                     find_count += 1
-                    print (
-                        ' | {:<30} | {:<20} | {:>8} |'.format(
+                    print ( ' | {:<30} | {:<20} | {:>8} |'.format(
                             product.get('name_of_product', ''),
                             product.get('name_of_market', ''),
                             product.get('value', '')
